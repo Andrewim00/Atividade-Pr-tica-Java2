@@ -1,11 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
+
     <head>
         <meta charset="UTF-8" />
         <title>Home</title>
     </head>
+
     <body>
-        <h1>Olá Spring!!!</h1>
+        <h1>Gêneros</h1>
+        <a href="/genero/insert">Novo Gênero</a>
+
+        <c:forEach var="item" items="${generos}">
+            <li>
+                ${item.descricao} |
+                <a href="/tarefas/update?id=${item.id}">Editar</a> |
+                <a href="/tarefas/delete?id=${item.id}">Excluir</a>
+            </li>
+        </c:forEach>
     </body>
 </html>
