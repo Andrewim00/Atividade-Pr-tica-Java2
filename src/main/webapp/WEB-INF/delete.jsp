@@ -8,12 +8,12 @@
     </head>
 
     <body>
-        <h1>Novo Gênero</h1>
+        <h1>Remover Gênero</h1>
 
-        <form action="/genero/insert" method="post">
-            <label>Descrição do Gênero</label>
-            <input type="text" name="descricao">
-            <button type="submit">Salvar</button>
+        <p>Deseja mesmo EXCLUIR o gênero: ${genero.descricao} ?</p>
+        <form action="/genero/delete" method="post">
+            <input type="hidden" name="id" value="${genero.id}">
+            <button type="submit">Excluir</button>
         </form>
     </body>
 </html>

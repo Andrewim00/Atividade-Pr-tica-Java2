@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import application.model.Genero;
 import application.repository.GeneroRepository;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
@@ -43,14 +45,51 @@ public class IndexController {
     }
 
     @RequestMapping("/update")
-    public String update() {
+    public String update(@RequestParam("id") long id, Model ui) {
+        Optional<Genero> resultado = generoRepo.findById(id);
 
-        return "update";
+        if(resultado.isPresent()){
+            ui.addAttribute("genero", resultado.get());
+            return "update";
+        }
+
+        return "redirect:/genero/home";
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String update(
+        @RequestParam("id") long id,
+        @RequestParam("descricao") String descricao) {
+
+            Optional<Genero> resultado = generoRepo.findById(id);
+
+            if (resultado.isPresent()) {
+                resultado.get().setDescricao(descricao);
+
+                generoRepo.save(resultado.get());
+            }
+
+            return "redirect:/genero/home";
+        }
+
 
     @RequestMapping("/delete")
-    public String delete() {
+    public String delete(@RequestParam("id") long id, Model ui) {
+        Optional<Genero> resultado = generoRepo.findById(id);
 
-        return "delete";
+        if(resultado.isPresent()){
+            ui.addAttribute("genero", resultado.get());
+            return "delete";
+        }
+
+        return "redirect:/genero/home";
     }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String delete(
+        @RequestParam("id") long id) {
+
+            generoRepo.deleteById(id);
+            return "redirect:/genero/home";
+        }
 }

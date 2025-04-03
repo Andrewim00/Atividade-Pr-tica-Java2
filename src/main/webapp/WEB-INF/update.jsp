@@ -11,8 +11,9 @@
         <h1>Edição de Gênero</h1>
 
         <form action="/genero/update" method="post">
+            <input type="hidden" name="id" value="${genero.id}">
             <label>Descrição do Gênero</label>
-            <input type="text" name="descricao">
+            <input type="text" name="descricao" value="${genero.descricao}">
             <button type="submit">Salvar</button>
         </form>
     </body>

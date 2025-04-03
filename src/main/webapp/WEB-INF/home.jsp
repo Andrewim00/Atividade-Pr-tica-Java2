@@ -15,8 +15,8 @@
         <c:forEach var="item" items="${generos}">
             <li>
                 ${item.descricao} |
-                <a href="/tarefas/update?id=${item.id}">Editar</a> |
-                <a href="/tarefas/delete?id=${item.id}">Excluir</a>
+                <a href="/genero/update?id=${item.id}">Editar</a> |
+                <a href="/genero/delete?id=${item.id}">Excluir</a>
             </li>
         </c:forEach>
     </body>
