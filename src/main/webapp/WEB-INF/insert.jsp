@@ -12,7 +12,7 @@
 
         <form action="/genero/insert" method="post">
             <label>Descrição do Gênero</label>
-            <input type="text" name="descricao">
+            <input type="text" name="nome">
             <button type="submit">Salvar</button>
         </form>
     </body>

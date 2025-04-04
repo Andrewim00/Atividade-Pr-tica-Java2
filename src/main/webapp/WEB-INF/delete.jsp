@@ -10,7 +10,7 @@
     <body>
         <h1>Remover Gênero</h1>
 
-        <p>Deseja mesmo EXCLUIR o gênero: ${genero.descricao} ?</p>
+        <p>Deseja mesmo EXCLUIR o gênero: ${genero.nome} ?</p>
         <form action="/genero/delete" method="post">
             <input type="hidden" name="id" value="${genero.id}">
             <button type="submit">Excluir</button>

@@ -35,9 +35,9 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/insert", method = RequestMethod.POST)
-    public String insert(@RequestParam("descricao") String descricao) {
+    public String insert(@RequestParam("nome") String nome) {
         Genero genero = new Genero();
-        genero.setDescricao(descricao);
+        genero.setnome(nome);
 
         generoRepo.save(genero);
         
@@ -59,12 +59,12 @@ public class IndexController {
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String update(
         @RequestParam("id") long id,
-        @RequestParam("descricao") String descricao) {
+        @RequestParam("nome") String nome) {
 
             Optional<Genero> resultado = generoRepo.findById(id);
 
             if (resultado.isPresent()) {
-                resultado.get().setDescricao(descricao);
+                resultado.get().setnome(nome);
 
                 generoRepo.save(resultado.get());
             }

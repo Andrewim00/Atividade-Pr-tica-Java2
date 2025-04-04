@@ -13,7 +13,7 @@
         <form action="/genero/update" method="post">
             <input type="hidden" name="id" value="${genero.id}">
             <label>Descrição do Gênero</label>
-            <input type="text" name="descricao" value="${genero.descricao}">
+            <input type="text" name="nome" value="${genero.nome}">
             <button type="submit">Salvar</button>
         </form>
     </body>

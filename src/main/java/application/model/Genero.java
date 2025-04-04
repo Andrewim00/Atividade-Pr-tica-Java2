@@ -13,7 +13,7 @@ public class Genero {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String descricao;
+    private String nome;
 
     public void setId(long id){
         this.id = id;
@@ -23,11 +23,11 @@ public class Genero {
         return this.id;
     }
 
-    public void setDescricao(String descricao){
-        this.descricao = descricao;
+    public void setnome(String nome){
+        this.nome = nome;
     }
 
-    public String getDescricao(){
-        return this.descricao;
+    public String getnome(){
+        return this.nome;
     }
 }
